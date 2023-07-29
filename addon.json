@@ -1,0 +1,6 @@
+{
+    "name": "Editor Highlighter",
+    "package": "editor_highlighter",
+    "homepage": "https://github.com/abdnh/anki-editor-highlighter",
+    "min_point_version": 45
+}

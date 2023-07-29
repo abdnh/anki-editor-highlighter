@@ -1,0 +1,1 @@
+Put your custom highlight styles in the highlight.css file.

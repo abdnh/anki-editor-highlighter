@@ -1,0 +1,8 @@
+{
+    "type": "object",
+    "properties": {
+        "patterns": {
+            "type": "array"
+        }
+    }
+}
