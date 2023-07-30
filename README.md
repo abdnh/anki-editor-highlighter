@@ -2,6 +2,10 @@
 
 This add-on allows you to highlights any specified terms/patterns in the editor. _Work in progress_.
 
+## Known Issues
+
+-   Sometimes the cursor jumps around to the previous word or the beginning of the field while the add-on highlights terms as they're typed.
+
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for a list of changes.

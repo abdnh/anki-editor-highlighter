@@ -3,6 +3,10 @@ class Highlighter {
         .getAttribute("src")
         .match(/_addons\/(.+?)\//)[1];
 
+    constructor() {
+        this.timeoutID = undefined;
+    }
+
     _injectStylesheet(root, editable, url) {
         const link = document.createElement("link");
         link.title = "Editor Highlighter Field Styles";
@@ -29,8 +33,23 @@ class Highlighter {
                 element: "span",
                 className: "highlight",
                 acrossElements: true,
+                filter: (e) => {
+                    if (e.parentNode.dataset && e.parentNode.dataset.markjs) {
+                        return false;
+                    }
+                    return true;
+                },
             });
         }
+    }
+
+    _registerInputHandler(editable, patterns) {
+        editable.addEventListener("input", () => {
+            clearTimeout(this.timeoutID);
+            this.timeoutID = setTimeout(() => {
+                this._highlight(editable, patterns);
+            }, 100);
+        });
     }
 
     async highlight(patterns) {
@@ -39,6 +58,7 @@ class Highlighter {
                 const editable = field.editingArea.editable;
                 this._inject(editable);
                 this._highlight(editable, patterns);
+                this._registerInputHandler(editable, patterns);
             });
         } else {
             const NoteEditor = require("anki/NoteEditor");
@@ -46,13 +66,14 @@ class Highlighter {
             while (!NoteEditor.instances[0]?.fields?.length) {
                 await new Promise(requestAnimationFrame);
             }
-            NoteEditor.instances[0].fields.forEach(async (field, i) => {
+            NoteEditor.instances[0].fields.forEach(async (field) => {
                 const richText = svelteStore.get(
                     field.editingArea.editingInputs
                 )[0];
-                const element = await richText.element;
-                this._inject(element);
-                this._highlight(element, patterns);
+                const editable = await richText.element;
+                this._inject(editable);
+                this._highlight(editable, patterns);
+                this._registerInputHandler(editable, patterns);
             });
         }
     }
