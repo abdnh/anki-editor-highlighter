@@ -51,7 +51,7 @@ class Highlighter {
                 }
                 markFunc(keyword, {
                     element: "span",
-                    className: "highlight",
+                    className: "highlighted-term",
                     acrossElements: true,
                     filter: (e) => {
                         if (
