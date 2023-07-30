@@ -26,39 +26,68 @@ class Highlighter {
         }
     }
 
-    _highlight(element, patterns) {
+    _highlight(element, terms) {
         const instance = new Mark(element);
-        for (const pattern of patterns) {
-            instance.markRegExp(new RegExp(pattern, "g"), {
-                element: "span",
-                className: "highlight",
-                acrossElements: true,
-                filter: (e) => {
-                    if (e.parentNode.dataset && e.parentNode.dataset.markjs) {
-                        return false;
+        for (const [classes, patterns] of Object.entries(terms)) {
+            let classList = [];
+            if (classes.trim()) {
+                classList.push(...classes.trim().split(" "));
+            }
+            for (const pattern of patterns) {
+                let markFunc = instance.mark;
+                let keyword;
+                if (typeof pattern === "object") {
+                    markFunc = instance.markRegExp;
+                    let flags = new Set(["g"]);
+                    for (const flag of (pattern.flags ?? "").split(" ")) {
+                        flags.add(flag);
                     }
-                    return true;
-                },
-            });
+                    keyword = new RegExp(
+                        pattern.pattern,
+                        Array.from(new Set(flags)).join("")
+                    );
+                } else {
+                    keyword = pattern;
+                }
+                markFunc(keyword, {
+                    element: "span",
+                    className: "highlight",
+                    acrossElements: true,
+                    filter: (e) => {
+                        if (
+                            e.parentNode.dataset &&
+                            e.parentNode.dataset.markjs
+                        ) {
+                            return false;
+                        }
+                        return true;
+                    },
+                    each: (e) => {
+                        if (classList.length) {
+                            e.classList.add(...classList);
+                        }
+                    },
+                });
+            }
         }
     }
 
-    _registerInputHandler(editable, patterns) {
+    _registerInputHandler(editable, terms) {
         editable.addEventListener("input", () => {
             clearTimeout(this.timeoutID);
             this.timeoutID = setTimeout(() => {
-                this._highlight(editable, patterns);
+                this._highlight(editable, terms);
             }, 100);
         });
     }
 
-    async highlight(patterns) {
+    async highlight(terms) {
         if (document.getElementById("fields")) {
             [...document.getElementById("fields").children].forEach((field) => {
                 const editable = field.editingArea.editable;
                 this._inject(editable);
-                this._highlight(editable, patterns);
-                this._registerInputHandler(editable, patterns);
+                this._highlight(editable, terms);
+                this._registerInputHandler(editable, terms);
             });
         } else {
             const NoteEditor = require("anki/NoteEditor");
@@ -72,8 +101,8 @@ class Highlighter {
                 )[0];
                 const editable = await richText.element;
                 this._inject(editable);
-                this._highlight(editable, patterns);
-                this._registerInputHandler(editable, patterns);
+                this._highlight(editable, terms);
+                this._registerInputHandler(editable, terms);
             });
         }
     }

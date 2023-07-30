@@ -1,8 +1,34 @@
 {
     "type": "object",
     "properties": {
-        "patterns": {
-            "type": "array"
+        "terms": {
+            "type": "object",
+            "patternProperties": {
+                ".*": {
+                    "type": "array",
+                    "items": {
+                        "oneOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "pattern": {
+                                        "type": "string"
+                                    },
+                                    "flags": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "pattern"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
         }
     }
 }

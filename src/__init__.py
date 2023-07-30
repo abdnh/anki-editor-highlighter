@@ -10,8 +10,8 @@ from bs4 import BeautifulSoup
 
 def highlight(editor: Editor) -> None:
     config = mw.addonManager.getConfig(__name__)
-    patterns = config["patterns"]
-    editor.web.eval("highlighter.highlight(%s)" % patterns)
+    terms = config["terms"]
+    editor.web.eval("highlighter.highlight(%s)" % terms)
 
 
 def inject_scripts(web_content: WebContent, context: object | None) -> None:
