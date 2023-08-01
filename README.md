@@ -1,6 +1,22 @@
 # Editor Highlighter
 
-This add-on allows you to highlights any specified terms/patterns in the editor. _Work in progress_.
+This add-on allows you to highlights any specified terms/patterns in the editor and (optionally) review/preview screen.
+
+The default config highlights clozes in blue.
+
+See _Tools > Add-ons > Config_ for configuration.
+
+![Config Window](./images/config.png)
+
+You can add new terms via the _New_ button, delete the selected row via _Delete_, and edit terms by double clicking on them.
+
+By default, the add-on highlights terms in blue, but you specify a different color or even different styles such as bold, italic and underline, by clicking on _Edit Styles_, which will open a CSS file.
+
+You can also give different terms different styles by specifying custom CSS classes under the _Classes_ column.
+
+If you're technical enough, you can also tell the add-on to treat terms as [regex](https://www.rexegg.com/) patterns by checking in the checkbox under the _Flags_ column. Here you can also specify flags such as `i` to match text in a case-insensitive manner.
+
+By default, the add-on only highlights terms in the editor, but you can change it by checking the _Highlight terms when reviewing too_ option.
 
 ## Known Issues
 
