@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>701</width>
+    <height>558</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="3">
+    <widget class="QPushButton" name="new_term">
+     <property name="text">
+      <string>New</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="2">
+    <widget class="QPushButton" name="edit_styles">
+     <property name="text">
+      <string>Edit Styles</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QCheckBox" name="persist_heighlights">
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="text">
+      <string>Highlight terms when reviewing too</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="3">
+    <widget class="QPushButton" name="save">
+     <property name="text">
+      <string>Save</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="3">
+    <widget class="QPushButton" name="delete_term">
+     <property name="text">
+      <string>Delete</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" rowspan="4" colspan="3">
+    <widget class="QTableWidget" name="terms">
+     <column>
+      <property name="text">
+       <string>Term</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Classes</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Flags</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>persist_heighlights</tabstop>
+  <tabstop>new_term</tabstop>
+  <tabstop>delete_term</tabstop>
+  <tabstop>edit_styles</tabstop>
+  <tabstop>save</tabstop>
+  <tabstop>terms</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

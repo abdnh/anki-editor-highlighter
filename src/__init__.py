@@ -12,9 +12,10 @@ from bs4 import BeautifulSoup
 try:
     from aqt.browser.previewer import Previewer
 except ImportError:
-    from aqt.previewer import Previewer
+    from aqt.previewer import Previewer  # type: ignore
 
 from .config import Config
+from .gui.config import ConfigDialog
 
 config = Config(mw.addonManager)
 
@@ -44,7 +45,12 @@ def on_note_will_flush(note: Note) -> None:
             note[key] = soup.decode_contents()
 
 
+def on_config() -> None:
+    ConfigDialog(mw, mw, config).exec()
+
+
 gui_hooks.editor_did_load_note.append(highlight)
 gui_hooks.webview_will_set_content.append(inject_scripts)
 hooks.note_will_flush.append(on_note_will_flush)
 mw.addonManager.setWebExports(__name__, r"(web|user_files)/.*")
+mw.addonManager.setConfigAction(__name__, on_config)
