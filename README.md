@@ -26,6 +26,10 @@ By default, the add-on only highlights terms in the editor, but you can change i
 
 See [CHANGELOG.md](CHANGELOG.md) for a list of changes.
 
+## Download
+
+You can download the add-on from AnkiWeb: [1521279388](https://ankiweb.net/shared/info/1521279388)
+
 ## Support & feature requests
 
 Please post any questions, bug reports, or feature requests in the [support page](https://forums.ankiweb.net/c/add-ons/11) or the [issue tracker](https://github.com/abdnh/anki-editor-highlighter/issues).

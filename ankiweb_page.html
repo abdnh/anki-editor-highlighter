@@ -1,3 +1,16 @@
+This add-on allows you to highlights any specified terms/patterns in the editor and (optionally) review/preview screen.
+The default config highlights clozes in blue.
+See <i>Tools &gt; Add-ons &gt; Config</i> for configuration.
+<img src="https://raw.githubusercontent.com/abdnh/anki-editor-highlighter/master/images/config.png" alt="Config Window">
+You can add new terms via the <i>New</i> button, delete the selected row via <i>Delete</i>, and edit terms by double clicking on them.
+By default, the add-on highlights terms in blue, but you specify a different color or even different styles such as bold, italic and underline, by clicking on <i>Edit Styles</i>, which will open a CSS file.
+You can also give different terms different styles by specifying custom CSS classes under the <i>Classes</i> column.
+If you're technical enough, you can also tell the add-on to treat terms as <a href="https://www.rexegg.com/">regex</a> patterns by checking in the checkbox under the <i>Flags</i> column. Here you can also specify flags such as <code>i</code> to match text in a case-insensitive manner.
+By default, the add-on only highlights terms in the editor, but you can change it by checking the <i>Highlight terms when reviewing too</i> option. Note that this will only work if you opened the note at least once in the editor. This might be changed in the future.
+
+<b>Known Issues</b>
+<ul><li>Sometimes the cursor jumps around to the previous word or the beginning of the field while the add-on highlights terms as they're typed.</li></ul>
+
 <b>Changelog</b>
 See <a href="https://github.com/abdnh/anki-editor-highlighter/blob/master/CHANGELOG.md">CHANGELOG.md</a> for a list of changes.
 

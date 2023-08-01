@@ -2,5 +2,6 @@
     "name": "Editor Highlighter",
     "package": "editor_highlighter",
     "homepage": "https://github.com/abdnh/anki-editor-highlighter",
+    "ankiweb_id": "1521279388",
     "min_point_version": 45
 }
