@@ -32,7 +32,7 @@ You can download the add-on from AnkiWeb: [1521279388](https://ankiweb.net/share
 
 ## Support & feature requests
 
-Please post any questions, bug reports, or feature requests in the [support page](https://forums.ankiweb.net/c/add-ons/11) or the [issue tracker](https://github.com/abdnh/anki-editor-highlighter/issues).
+Please post any questions, bug reports, or feature requests in the [support page](https://forums.ankiweb.net/t/editor-highlighter-highlight-terms-in-the-editor/32709) or the [issue tracker](https://github.com/abdnh/anki-editor-highlighter/issues).
 
 If you want priority support for your feature/help request, I'm available for hire.
 You can get in touch from the aforementioned pages, via [email](mailto:abdo@abdnh.net) or on [Fiverr](https://www.fiverr.com/abd_nh).
