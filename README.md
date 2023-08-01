@@ -16,7 +16,7 @@ You can also give different terms different styles by specifying custom CSS clas
 
 If you're technical enough, you can also tell the add-on to treat terms as [regex](https://www.rexegg.com/) patterns by checking in the checkbox under the _Flags_ column. Here you can also specify flags such as `i` to match text in a case-insensitive manner.
 
-By default, the add-on only highlights terms in the editor, but you can change it by checking the _Highlight terms when reviewing too_ option.
+By default, the add-on only highlights terms in the editor, but you can change it by checking the _Highlight terms when reviewing too_ option. Note that this will only work if you opened the note at least once in the editor. This might be changed in the future.
 
 ## Known Issues
 
